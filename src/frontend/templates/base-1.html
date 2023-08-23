@@ -18,6 +18,12 @@
     <!--Swal-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
+    <!--favicon-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
     <!--Icons-->
     <link rel="icon" href="../static/img/blue-icon-small.ico">
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
@@ -33,10 +39,11 @@
 
             <!-- Logo -->
             <div>
-                <a href="{{ url_for('home1') }}" class=" flex items-center"> <img
+                <a href="{{ url_for('homel') }}" class=" flex items-center"> <img
                         src="../static/img/blue-icon-small.ico" alt="Calu Logo" class="w-16">
                     <span class="self-center text-3xl font-black whitespace-nowrap text-sky-600">CALU</span>
                 </a>
+
             </div>
 
 
@@ -45,16 +52,16 @@
                 class="nav-links z-10 duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
                 <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
                     <li>
-                        <a href="{{ url_for('home1') }}" class="text-xl font-bold text-[#3c5a66] hover:text-sky-400">
+                        <a href="{{ url_for('homel') }}" class="text-xl font-bold text-[#3c5a66] hover:text-sky-400">
                             Home
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url_for('clubs1') }}"
+                        <a href="{{ url_for('clubsl') }}"
                             class="text-xl font-bold text-[#507888] hover:text-sky-400">Clubs</a>
                     </li>
                     <li>
-                        <a href="{{ url_for('about1') }}"
+                        <a href="{{ url_for('aboutl') }}"
                             class="text-xl font-bold text-[#507888] hover:text-sky-400">About</a>
                     </li>
                 </ul>
@@ -80,7 +87,7 @@
                                     <img class="w-100% object-cover" src="../static/img/IMG_1035.jpeg" alt="Profile">
                                 </div>
                                 <div>
-                                    <div class="flex gap-1 text-sm font-semibold"> Chernet Asmamaw
+                                    <div class="flex gap-1 text-sm font-semibold">{{ user.first_name }}
                                         <span class="text-sky-400">
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z">
@@ -88,7 +95,7 @@
                                             </svg>
                                         </span>
                                     </div>
-                                    <div class="text-xs text-slate-400">user--0001</div>
+                                    <div class="text-xs text-slate-400">User--00{{ user.id }}</div>
                                 </div>
                             </div>
 
@@ -149,7 +156,7 @@
 
 
     <!-- Footer-->
-    <footer class="bg-white dark:bg-white">
+    <footer class="bg-white dark:bg-white  fixed bottom-0 w-full px-4 text-center">
         <div
             class="container flex flex-col items-center justify-between p-6 mx-auto space-y-6 sm:space-y-0 sm:flex-row">
             <a href="#">
@@ -202,6 +209,7 @@
 
     <script src="../static/js/humberger_menu.js"></script>
     <script src="../static/js/profile_dropdown.js"></script>
+
 
 
 
