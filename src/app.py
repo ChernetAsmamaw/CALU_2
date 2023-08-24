@@ -1,10 +1,12 @@
-from flask import Flask, render_template, request, redirect, flash, url_for
-from models import app, db, User
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, request, Blueprint, get_flashed_messages,g, session
+from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
-from werkzeug.utils import secure_filename
-import os
-from datetime import date, datetime, timedelta
+from models import app, db, User, Club, Member
 from flask_login import login_user, login_required, logout_user, current_user, LoginManager
+from datetime import date, datetime, timedelta
+from flask_socketio import SocketIO, emit
+from werkzeug.utils import secure_filename
+from sqlalchemy import and_
 
 
 app = app
@@ -103,7 +105,8 @@ def signup():
 
         new_user = User(
             email=email,
-            password=hashed_password
+            password=hashed_password,
+            type='admin'
         )
         db.session.add(new_user)
         db.session.commit()
@@ -124,6 +127,10 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user and check_password_hash(user.password, password):
             # Log in the user
+            if user.type == 'admin':
+                flash('You have logged in successfully!', 'success')
+                login_user(user, remember=True)
+                return redirect(url_for('admin'))
             flash('You have logged in successfully!', 'success')
             login_user(user, remember=True)
             return redirect(url_for('homel'))
@@ -184,6 +191,78 @@ def edit_profile():
         db.session.commit()
         return redirect(url_for('profile'))
     return render_template('profile.html',user=current_user)
+
+
+
+
+
+
+
+
+@app.route('/admin')
+@login_required
+def admin():
+    return render_template('/admin/admin.html', user=current_user)
+
+@app.route('/create', methods=['GET', 'POST'])
+@login_required
+def create():
+    if request.method == 'POST':
+        # Get the form data
+        name = request.form['name']
+        discripton = request.form['discripton']
+        type = request.form['type']
+        club = Club.query.filter_by(name=name).first()
+        if club:
+            flash('club already exist', 'error')
+            return redirect(url_for('create'))
+
+        # Hash the password
+        user = current_user
+        # Save the uploaded image if present
+        file = request.files['image']
+    # Process the uploaded file here
+        file.save('static/uploads/' + file.filename)
+    #filename = secure_filename(f.filename)
+        # Create a new user object
+        new_club = Club(
+            name=name,
+            discripton=discripton,
+            type=type,
+            owner_id=user.id,
+            #image=filename.encode('utf-8')
+        )
+
+        # Add the new user to the database
+        db.session.add(new_club)
+        db.session.commit()
+
+        flash('You have created the club', 'success')
+        return redirect(url_for('create'))
+    return render_template('/admin/create.html', user=current_user)
+
+@app.route('/requests')
+@login_required
+def requests():
+    return render_template('/admin/requests.html', user=current_user)
+
+@app.route('/clubs_admin')
+@login_required
+def clubs_admin():
+    return render_template('/admin/clubs_admin.html', user=current_user)
+
+@app.route('/create_club', methods=['GET', 'POST'])
+@login_required
+def create_club():
+    
+
+    # Render the signup page
+    return render_template('reg.html')
+
+
+
+
+
 
 
 

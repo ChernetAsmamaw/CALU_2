@@ -1,0 +1,46 @@
+{% extends "admin/base-admin.html" %}
+{% block content %}
+
+
+<main class="bg-gray-100 font-family-karla flex my-6 mx-12">
+    <div class="w-full h-[75vh] overflow-x-hidden border-t flex flex-row">
+        <main class="w-full flex-grow p-6">
+            <h1 class="text-3xl text-black pb-6">Club Creation requests</h1>
+            <div class="flex flex-col space-y-4">
+                <div class="flex justify-between items-center bg-white rounded-lg shadow-md p-4">
+                    <div class="flex items-center space-x-2">
+                        <img src="../static/img/hero-1.jpg" alt="User Avatar" class="w-10 h-10 rounded-full">
+                        <div>
+                            <p class="text-lg font-semibold">John Doe</p>
+                            <p class="text-sm text-gray-500">Request 1</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                elit.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600">Accept</button>
+                        <button class="p-2 bg-red-500 text-white rounded hover:bg-red-600">Reject</button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center bg-white rounded-lg shadow-md p-4">
+                    <div class="flex items-center space-x-2">
+                        <img src="../static/img/hero-2.png" alt="User Avatar" class="w-10 h-10 rounded-full">
+                        <div>
+                            <p class="text-lg font-semibold">John Doe</p>
+                            <p class="text-sm text-gray-500">Request 2</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                elit.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600">Accept</button>
+                        <button class="p-2 bg-red-500 text-white rounded hover:bg-red-600">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</main>
+
+
+{% endblock %}

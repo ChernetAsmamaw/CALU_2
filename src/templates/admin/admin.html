@@ -1,0 +1,265 @@
+{% extends "admin/base-admin.html" %}
+{% block content %}
+
+
+
+
+<main class="bg-gray-100 font-family-karla flex mx-12 my-14 ">
+
+    <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+        <main class="w-full flex-grow p-6">
+            <h1 class="text-3xl text-black pb-6">Tables</h1>
+
+            <div class="w-full mt-6">
+                <p class="text-xl pb-3 flex items-center">
+                    <i class="fas fa-list mr-3"></i> Clubs
+                </p>
+                <div class="bg-white overflow-auto">
+                    <table class="min-w-full bg-white">
+                        <thead class="bg-gray-800 text-white">
+                            <tr>
+                                <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Club Name
+                                </th>
+                                <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Type
+                                </th>
+                                <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Owner</th>
+                                <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Member No</td>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr>
+                                <td class="w-1/3 text-left py-3 px-4">Football Club</td>
+                                <td class="w-1/3 text-left py-3 px-4">Sports Club</td>
+                                <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">Mr
+                                        Apolo King</a></td>
+                                <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="#">433</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w-1/3 text-left py-3 px-4">Chess Club</td>
+                                <td class="w-1/3 text-left py-3 px-4">Other Club</td>
+                                <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">Ms.
+                                        Emily Johnson</a></td>
+                                <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="#">567</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="w-1/3 text-left py-3 px-4">Melodies Club</td>
+                                <td class="w-1/3 text-left py-3 px-4">Art Club</td>
+                                <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">Mr.
+                                        David Thompson</a></td>
+                                <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="#">789</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="w-1/3 text-left py-3 px-4">Painting Club</td>
+                                <td class="w-1/3 text-left py-3 px-4">Arts Club</td>
+                                <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">Ms.
+                                        Sophia Lee</a></td>
+                                <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="#">901</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="w-full mt-12">
+                <p class="text-xl pb-3 flex items-center">
+                    <i class="fas fa-list mr-3"></i> Users
+                </p>
+                <div class="bg-white overflow-auto">
+                    <table class="min-w-full leading-normal">
+                        <thead>
+                            <tr>
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Full Name
+                                </th>
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Rol
+                                </th>
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Created at
+                                </th>
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Status
+                                </th>
+
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    User ID
+                                </th>
+
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 w-10 h-10">
+                                            <img class="w-full h-full rounded-full" src="../static/img/IMG_1035.jpeg"
+                                                alt="" />
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-gray-900 whitespace-no-wrap">
+                                                Chernet Asmamaw
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">Super - Admin</p>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">
+                                        Jan 21, 2020
+                                    </p>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <span
+                                        class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                        <span aria-hidden
+                                            class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                                        <span class="relative">Active</span>
+                                    </span>
+                                </td>
+
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">User--001</p>
+
+                            </tr>
+                            <tr>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 w-10 h-10">
+                                            <img class="w-full h-full rounded-full" src="../static/img/bird-1.jpeg"
+                                                alt="" />
+                                        </div>
+                                        <div class=" ml-3">
+                                            <p class="text-gray-900 whitespace-no-wrap">
+                                                Apolo King
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">Club Admin</p>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">
+                                        Jan 01, 2020
+                                    </p>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <span
+                                        class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                        <span aria-hidden
+                                            class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                                        <span class="relative">Active</span>
+                                    </span>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">User--002</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 w-10 h-10">
+                                            <img class="w-full h-full rounded-full"
+                                                src="https://images.unsplash.com/photo-1540845511934-7721dd7adec3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
+                                                alt="" />
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-gray-900 whitespace-no-wrap">
+                                                Dana Moore
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">User</p>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">
+                                        Jan 10, 2020
+                                    </p>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <span
+                                        class="relative inline-block px-3 py-1 font-semibold text-orange-900 leading-tight">
+                                        <span aria-hidden
+                                            class="absolute inset-0 bg-orange-200 opacity-50 rounded-full"></span>
+                                        <span class="relative">Inactive</span>
+                                    </span>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">User--003</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-5 py-5 bg-white text-sm">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 w-10 h-10">
+                                            <img class="w-full h-full rounded-full"
+                                                src="https://images.unsplash.com/photo-1522609925277-66fea332c575?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&h=160&w=160&q=80"
+                                                alt="" />
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-gray-900 whitespace-no-wrap">
+                                                Alonzo Cox
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-5 py-5 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">User</p>
+                                </td>
+                                <td class="px-5 py-5 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">Jan 18, 2020</p>
+                                </td>
+                                <td class="px-5 py-5 bg-white text-sm">
+                                    <span
+                                        class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                        <span aria-hidden
+                                            class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                                        <span class="relative">Active</span>
+                                    </span>
+                                </td>
+
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">User--004</p>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    </div>
+
+
+</main>
+
+
+
+
+{% endblock %}
