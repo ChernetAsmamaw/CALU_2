@@ -25,8 +25,14 @@
 
             <div class="flex flex-col md:flex-row justify-even mb-4">
                 <div class="profile-picture mb-8 md:mb-0 xl:pr-32 md:pr-16 sm:pr-16">
-                    <img src="../static/img/IMG_1035.jpeg" alt="Profile Picture"
+                    {% if user.image %}
+                    <img src="{{ url_for('static', filename='uploads/' + user.image.decode('utf-8')) }}"
+                        alt="User Image">
+                    {% else %}
+                    <img src="https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-12.jpg"
+                        alt="User Image"
                         class="rounded-full w-[25vh] h-[25vh] mx-auto md:mx-0 mb-4 border-4 border-gray-500">
+                    {% endif %}
                     <button class="btn-delete py-1 px-2 mr-2 rounded bg-red-500 text-white border-2 border-gray-400"
                         type="button">
                         <i class="fas fa-trash-alt"></i> Delete
@@ -34,7 +40,10 @@
 
                     <button class="btn-change py-1 px-2 rounded bg-blue-500 text-white border-2 border-gray-400"
                         type="button">
-                        <i class="fas fa-recycle"></i> Change
+                        <label for="image">
+                            <i class="fas fa-recycle"></i> Change
+                        </label>
+                        <input type="file" id="image" name="image" style="display: none;">
                     </button>
                 </div>
 
@@ -120,7 +129,7 @@
                         </label>
                         <input
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            name="phone" value="{{user.phone}}" required pattern="[a-zA-Z]+" id="phone" type="int"
+                            name="phone" value="{{user.phone}}" required pattern="[0-9]{10}" id="phone" type="int"
                             placeholder="Phone Number">
                     </div>
 
@@ -162,7 +171,7 @@
                         <input
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             name="nationality" value="{{user.nationality}}" required pattern="[a-zA-Z]+"
-                            id="nationality" type="text" placeholder="Ethiopian">
+                            id="nationality" type="text" placeholder="Ethiopian" value="{{user.study_location}}">
                     </div>
 
 
@@ -187,8 +196,8 @@
                         </label>
                         <select
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            name="study_location" value="{{user.study_location}}" required pattern="[a-zA-Z]+"
-                            id="study_location">
+                            name="study_location" required pattern="[a-zA-Z]+" id="study_location">
+                            <option value="{{user.study_location}}">{{user.study_location}}</option>
                             <option value="alu">ALU Campus</option>
                             <option value="kigali">Kigali Hub</option>
                             <option value="addis">Addis Ababa Hub</option>

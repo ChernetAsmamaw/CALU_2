@@ -1,0 +1,88 @@
+{% extends "admin/base-admin.html" %}
+{% block content %}
+
+
+<!-- Club Creation  -->
+<main class="bg-gray-100 font-family-karla flex my-4 mx-12 pb-24">
+    <div class="w-full h-[100vh] overflow-x-hidden border-t flex flex-row">
+        <!-- component -->
+        <section class="max-w-4xl p-6 mx-auto bg-indigo-600 rounded-md shadow-md dark:bg-sky-600 mt-20">
+            <h1 class="text-xl font-bold text-white capitalize dark:text-white">Event Creation</h1>
+            <form method="POST" enctype="multipart/form-data">
+                <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+                    <div>
+                        <label class="text-white dark:text-gray-200" for="">Event Name</label>
+                        <input id="username" type="text" name="name"
+                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-200 dark:text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                    </div>
+
+                    <div>
+                        <label class="text-white dark:text-gray-200" for="discription">Event
+                            Discription</label>
+                        <textarea id="textarea" name="discripton" type="textarea"
+                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-500 rounded-md dark:bg-gray-200 dark:text-gray-800 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"></textarea>
+                    </div>
+
+
+                    <div>
+                        <label class="text-white dark:text-gray-200" for="">Event Date</label>
+                        <input id="username" type="text" name="date"
+                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-200 dark:text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                    </div>
+
+
+                    <div>
+                        <label class="text-white dark:text-gray-200" for="">Event Time</label>
+                        <input id="username" type="text" name="time"
+                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-200 dark:text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                    </div>
+
+
+                    <div>
+                        <label class="text-white dark:text-gray-200" for="">Event Admission Fee</label>
+                        <input id="username" type="text" name="admission"
+                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-200 dark:text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                    </div>
+
+                    <div>
+                        <label class="text-white dark:text-gray-200" for="location">Event Location</label>
+                        <input id="location" type="text" name="location"
+                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-200 dark:text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                    </div>
+
+                    <div>
+                        <label class="text-white dark:text-gray-200" for="rsvp">Event RSVP</label>
+                        <input id="rsvp" type="text" name="rsvp"
+                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-200 dark:text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                    </div>
+
+                    <div>
+                        <label class="text-white dark:text-gray-200" for="link">Event Link</label>
+                        <input id="link" type="text" name="link"
+                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-200 dark:text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-white">Club Image</label>
+                        <div
+                            class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Image</label>
+                                <input type="file" class="form-control" id="image" name="image">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end mt-6">
+                        <button
+                            class="px-4 py-2 leading-5 font-bold text-gray-800 transition-colors duration-200 transform bg-gray-300 rounded-md hover:bg-sky-900 focus:outline-none focus:bg-gray-400">
+                            Create Event
+                        </button>
+                    </div>
+            </form>
+        </section>
+    </div>
+</main>
+
+
+
+{% endblock %}

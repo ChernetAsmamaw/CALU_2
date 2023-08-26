@@ -1,0 +1,252 @@
+{% extends "admin/base-admin.html" %}
+{% block content %}
+
+<!-- User Profile -->
+<main>
+
+
+
+
+    <!--User Account Profile-->
+    <div class="w-full md:max-w-2xl mx-auto h-auto pt-12 pb-48">
+
+
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="/edit_admin_profile"
+            enctype="multipart/form-data">
+
+
+            <div class="w-full p-4 flex justify-center pb-12">
+                <h2 class="text-sky-700 xl:text-3xl font-bold md:text-2xl sm:text-xl">{{user.first_name}}'s Profile</h2>
+            </div>
+
+
+
+            <div class="flex flex-col md:flex-row justify-even mb-4">
+                <div class="profile-picture mb-8 md:mb-0 xl:pr-32 md:pr-16 sm:pr-16">
+                    {% if user.image %}
+                    <img src="{{ url_for('static', filename='uploads/' + user.image.decode('utf-8')) }}"
+                        alt="User Image">
+                    {% else %}
+                    <img src="https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-12.jpg"
+                        alt="User Image"
+                        class="rounded-full w-[25vh] h-[25vh] mx-auto md:mx-0 mb-4 border-4 border-gray-500">
+                    {% endif %}
+                    <button class="btn-delete py-1 px-2 mr-2 rounded bg-red-500 text-white border-2 border-gray-400"
+                        type="button">
+                        <i class="fas fa-trash-alt"></i> Delete
+                    </button>
+
+                    <button class="btn-change py-1 px-2 rounded bg-blue-500 text-white border-2 border-gray-400"
+                        type="button">
+                        <label for="image">
+                            <i class="fas fa-recycle"></i> Change
+                        </label>
+                        <input type="file" id="image" name="image" style="display: none;">
+                    </button>
+                </div>
+
+
+
+                <div class="data-list flex-col w-auto">
+                    <!-- Existing inputs... -->
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="first_name">
+                            First Name
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="first_name" name="first_name" value="{{user.first_name}}" required pattern="[a-zA-Z]+"
+                            type="text" placeholder="first name">
+                    </div>
+
+
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="last_name">
+                            Last Name
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="last_name" name="last_name" value="{{user.last_name}}" required pattern="[a-zA-Z]+"
+                            type="text" placeholder="first name">
+                    </div>
+
+
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                            Username
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            name="username" value="{{user.username}}" required pattern="[a-zA-Z]+" id="username"
+                            type="text" placeholder="user name">
+                    </div>
+
+
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                            Email
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            name="email" value="{{user.email}}" id="email" type="text"
+                            placeholder="email@alustudent.com">
+                    </div>
+
+
+
+
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                            Password
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            name="password" value="{{user.password}}" id="password" type="password"
+                            placeholder="***********">
+                    </div>
+
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="date_of_birth">
+                            Date of Birth
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            name="date_of_birth" value="{{user.date_of_birth}}" required pattern="[a-zA-Z]+"
+                            id="date_of_birth" type="date">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
+                            Phone Number
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            name="phone" value="{{user.phone}}" required pattern="[0-9]{10}" id="phone" type="int"
+                            placeholder="Phone Number">
+                    </div>
+
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="year_of_study">
+                            Year
+                        </label>
+                        <select
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            name="year_of_study" value="{{user.year_of_study}}" required pattern="[a-zA-Z]+"
+                            id="year_of_study">
+                            <option value="first_year">1st Year</option>
+                            <option value="second_year">2nd Year</option>
+                            <option value="third_year">3rd Year</option>
+                            <option value="fourth_year">4th Year</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="major">
+                            Major
+                        </label>
+                        <select
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            name="major" value="{{user.major}}" required pattern="[a-zA-Z]+" id="major">
+                            <option value="bel">BEL</option>
+                            <option value="bse">BSE</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="nationality">
+                            Nationality
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            name="nationality" value="{{user.nationality}}" required pattern="[a-zA-Z]+"
+                            id="nationality" type="text" placeholder="Ethiopia" value="{{user.study_location}}">
+                    </div>
+
+
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="gender">
+                            Gender
+                        </label>
+                        <select
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            name="gender" value="{{user.gender}}" required pattern="[a-zA-Z]+" id="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="study_location">
+                            Study Location
+                        </label>
+                        <select
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            name="study_location" required pattern="[a-zA-Z]+" id="study_location">
+                            <option value="{{user.study_location}}">{{user.study_location}}</option>
+                            <option value="alu">ALU Campus</option>
+                            <option value="kigali">Kigali Hub</option>
+                            <option value="addis">Addis Ababa Hub</option>
+                            <option value="nairobi">Nairobi Hub</option>
+                            <option value="lagos">Lagos Hub</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+            <div class="flex items-center justify-end pb-4">
+                <button
+                    class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="submit0" id="saveButton">
+                    <i class="fa-regular fa-floppy-disk"></i>
+                    Save Changes
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+
+
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../static/js/user_profile.js"></script>
+<script src="../static/js/profile_dropdown.js"></script>
+<script src="../static/js/humberger_menu.js"></script>
+<script src="../static/js/profile_alidation.js"></script>
+
+
+
+{% endblock %}

@@ -99,6 +99,10 @@
                             class="text-xl font-bold text-[#507888] hover:text-sky-400">Create Clubs</a>
                     </li>
                     <li>
+                        <a href="{{ url_for('event') }}"
+                            class="text-xl font-bold text-[#507888] hover:text-sky-400">Create Events</a>
+                    </li>
+                    <li>
                         <a href="{{ url_for('requests') }}"
                             class="text-xl font-bold text-[#507888] hover:text-sky-400">Requests</a>
                     </li>
@@ -113,7 +117,13 @@
                         <button
                             class="flex h-12 w-12 items-center justify-center rounded-lg bg-slate-900 text-slate-100 ring-slate-100 transition hover:shadow-md hover:ring-2 overflow-hidden"
                             @click="isOpen=!isOpen">
-                            <img class="w-full object-cover" src="../static/img/IMG_1035.jpeg" alt="Profile">
+                            {% if user.image %}
+                            <img src="{{ url_for('static', filename='uploads/' + user.image.decode('utf-8')) }}"
+                                alt="User Image">
+                            {% else %}
+                            <img src="https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-12.jpg"
+                                alt="User Image" class="w-100% object-cover">
+                            {% endif %}
                         </button>
 
                         <!-- Dropdown Menu -->
@@ -122,7 +132,13 @@
                             <div class="flex gap-3 items-center">
                                 <div
                                     class="flex items-center justify-center rounded-lg h-12 w-12 overflow-hidden border-2 border-slate-600">
-                                    <img class="w-100% object-cover" src="../static/img/IMG_1035.jpeg" alt="Profile">
+                                    {% if user.image %}
+                                    <img src="{{ url_for('static', filename='uploads/' + user.image.decode('utf-8')) }}"
+                                        alt="User Image">
+                                    {% else %}
+                                    <img src="https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-12.jpg"
+                                        alt="User Image" class="w-100% object-cover">
+                                    {% endif %}
                                 </div>
                                 <div>
                                     <div class="flex gap-1 text-sm font-semibold">{{ user.first_name }}
@@ -139,7 +155,7 @@
 
                             <div class="border-t border-slate-500/30"></div>
                             <div class="flex flex-col">
-                                <a href="{{ url_for('profile') }}"
+                                <a href="{{ url_for('admin_profile') }}"
                                     class="flex items-center gap-3 rounded-md py-2 px-3 hover:bg-slate-800">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                         class="h-5 w-5">

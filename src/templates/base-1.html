@@ -109,7 +109,13 @@
                         <button
                             class="flex h-12 w-12 items-center justify-center rounded-lg bg-slate-900 text-slate-100 ring-slate-100 transition hover:shadow-md hover:ring-2 overflow-hidden"
                             @click="isOpen=!isOpen">
-                            <img class="w-full object-cover" src="../static/img/IMG_1035.jpeg" alt="Profile">
+                            {% if user.image %}
+                            <img src="{{ url_for('static', filename='uploads/' + user.image.decode('utf-8')) }}"
+                                alt="User Image">
+                            {% else %}
+                            <img src="https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-12.jpg"
+                                alt="User Image" class="w-100% object-cover">
+                            {% endif %}
                         </button>
 
                         <!-- Dropdown Menu -->
@@ -118,7 +124,13 @@
                             <div class="flex gap-3 items-center">
                                 <div
                                     class="flex items-center justify-center rounded-lg h-12 w-12 overflow-hidden border-2 border-slate-600">
-                                    <img class="w-100% object-cover" src="../static/img/IMG_1035.jpeg" alt="Profile">
+                                    {% if user.image %}
+                                    <img src="{{ url_for('static', filename='uploads/' + user.image.decode('utf-8')) }}"
+                                        alt="User Image">
+                                    {% else %}
+                                    <img src="https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-12.jpg"
+                                        alt="User Image" class="w-100% object-cover">
+                                    {% endif %}
                                 </div>
                                 <div>
                                     <div class="flex gap-1 text-sm font-semibold">{{ user.first_name }}
