@@ -153,10 +153,12 @@ def signup():
         # Hash the password
         hashed_password = generate_password_hash(password, method='sha256')
 
-        if email == 'c.asmamaw@alustudent.com':
+        is_first_user = User.query.first() is None
+        if is_first_user:
             type = 'admin'
         else:
             type = 'user'
+
         # Create a new user object
         new_user = User(
             email=email,
@@ -219,7 +221,6 @@ def edit_profile():
         last_name = request.form['last_name']
         email = request.form['email']
         #reverse the hashed password
-        password = request.form['password']
         username = request.form['username']
         date_of_birth = request.form['date_of_birth']
         phone = request.form['phone']
@@ -255,7 +256,6 @@ def edit_profile():
         user.first_name=first_name
         user.last_name=last_name
         user.email=email
-        user.password=password
         user.username=username
         user.date_of_birth=date_of_birth
         user.phone=phone
@@ -384,6 +384,12 @@ def event():
     return render_template('/admin/event.html', user=current_user, event=event)
 
 
+@app.route('/events_admin')
+@login_required
+def events_admin():
+    event = Event.query.filter().all()
+    return render_template('/admin/events_admin.html', user=current_user, event=event)
+
 
 @app.route('/requests')
 @login_required
@@ -399,7 +405,6 @@ def clubs_admin():
 @app.route('/create_club', methods=['GET', 'POST'])
 @login_required
 def create_club():
-    
     # Render the signup page
     return render_template('reg.html')
 
@@ -422,7 +427,6 @@ def edit_admin_profile():
         last_name = request.form['last_name']
         email = request.form['email']
         #reverse the hashed password
-        password = request.form['password']
         username = request.form['username']
         date_of_birth = request.form['date_of_birth']
         phone = request.form['phone']
@@ -456,7 +460,6 @@ def edit_admin_profile():
         user.first_name=first_name
         user.last_name=last_name
         user.email=email
-        user.password=password
         user.username=username
         user.date_of_birth=date_of_birth
         user.phone=phone
@@ -479,5 +482,4 @@ def edit_admin_profile():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(port=5001)
-    app.run(debug=True)
+    app.run(port=5001, debug=True)

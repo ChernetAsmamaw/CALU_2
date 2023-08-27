@@ -1,0 +1,54 @@
+{% extends "admin/base-admin.html" %}
+{% block content %}
+
+
+<section class="section-container bg-gray-50 min-h-fit py-16 flex justify-center items-center gap-x-16 text-white">
+
+    {% for e in event %}
+
+    <div class="w-[350px] h-[460px] bg-transparent cursor-pointer group perspective py-2">
+        <div class="relative preserve-3d group-hover:my-rotate-y-180 w-full h-full duration-1000 py-4">
+            <div class="absolute backface-hidden border-8 border-blue-900 w-full h-full">
+                <img src="{{ url_for('static', filename='uploads/' + e.image.decode('utf-8')) }}" required
+                    class="w-full h-full" />
+            </div>
+            <div class="absolute my-rotate-y-180 backface-hidden w-full h-full bg-gray-100 overflow-hidden">
+                <div class="text-center flex flex-col items-center justify-center h-full text-gray-800 px-2 pb-24">
+                    <h1 class="text-3xl font-semibold"> {{ e.name }}</h1>
+                    <p class="my-2 text-xs text-gray-600 pb-4">{{ e.description}}</p>
+                    <table class="text-sm">
+                        <tr>
+                            <th>Date:</th>
+                            <td required>{{ e.date }}</td>
+                        </tr>
+                        <tr>
+                            <th>Time:</th>
+                            <td required>{{ e.time }}</td>
+                        <tr>
+                            <th>Admission:</th>
+                            <td required>{{ e.admission }}</td>
+                        </tr>
+                        <tr>
+                            <th>Location:</th>
+                            <td required>{{ e.location }}</td>
+                        </tr>
+                        <tr>
+                            <th>RSVP:</th>
+                            <td required>{{ e.rsvp }}</td>
+                        </tr>
+                    </table>
+                    <button
+                        class="bg-sky-600 px-6 py-2 font-semibold text-white rounded-full absolute -bottom-10 delay-500 duration-1000 group-hover:bottom-10 scale-0 group-hover:scale-125"
+                        required> <a href="{{ e.link }}">learn more</a>
+
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}

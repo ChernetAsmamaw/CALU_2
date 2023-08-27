@@ -6,28 +6,28 @@
 
 <!-- The Team-->
 <section class="bg-white dark:bg-sky-900">
-    <div class="container px-6 py-12 mx-auto">
+    <div class="container px-6 py-4 mx-auto">
         <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">Our Team
         </h1>
 
-        <p class="max-w-2xl mx-auto my-2 text-center text-gray-500 dark:text-gray-300">
+        <p class="max-w-2xl mx-auto my-1 text-center text-gray-500 dark:text-gray-300">
             We are a team of two second-year BSE students from ALU, passionate about coding and constantly seeking
             improvement. Excited about this project, we hope you enjoy it and appreciate your support.
         </p>
 
-        <div class="grid grid-cols-1 gap-8 mt-2 xl:mt-16 md:grid-cols-2 xl:grid-cols-2 xl:px-[40vh]">
+        <div class="grid grid-cols-1 gap-8 mt-1 xl:mt-12 md:grid-cols-2 xl:grid-cols-2 xl:px-[40vh]">
             <div
                 class="flex flex-col items-center p-8 transition-colors duration-300 transform cursor-pointer rounded-xl hover:border-transparent group hover:bg-sky-600 dark:border-gray-700 dark:hover:border-transparent">
-                <img class="object-cover w-64 h-64 rounded-full ring-4 ring-gray-300"
+                <img class="object-cover w-60 h-60 rounded-full ring-4 ring-gray-300"
                     src="{{ url_for('static', filename='/img/IMG_1035.jpeg') }}" alt="Team">
 
-                <h1 class="mt-4 text-xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
+                <h1 class="mt-3 text-xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
                     Chernet Asmamaw</h1>
 
-                <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">BSE Studnet at
+                <p class="mt-1 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">BSE Studnet at
                     ALU</p>
 
-                <div class="flex mt-3 -mx-2">
+                <div class="flex mt-2 -mx-2">
                     <a href="#"
                         class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                         aria-label="Reddit">
@@ -65,16 +65,16 @@
 
             <div
                 class="flex flex-col items-center p-8 transition-colors duration-300 transform cursor-pointer rounded-xl hover:border-transparent group hover:bg-sky-600 dark:border-gray-700 dark:hover:border-transparent">
-                <img class="object-cover w-64 h-64 rounded-full ring-4 ring-gray-300"
+                <img class="object-cover w-60 h-60 rounded-full ring-4 ring-gray-300"
                     src="{{ url_for('static', filename='/img/gggg.jpg') }}" alt="Team">
 
-                <h1 class="mt-4 text-xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
+                <h1 class="mt-3 text-xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
                     Bouy Joak</h1>
 
-                <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">BSE Student at
+                <p class="mt-1 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">BSE Student at
                     ALU</p>
 
-                <div class="flex mt-3 -mx-2">
+                <div class="flex mt-2 -mx-2">
                     <a href="#"
                         class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                         aria-label="Reddit">
@@ -118,19 +118,16 @@
 
 
 <!--Youtube Video-->
-<section>
+<section class="bg-white">
 
-    <h1 class="text-3xl font-bold text-sky-900 text-center drop-shadow-lg shadow-black pt-8">
+    <h1 class="text-3xl font-bold text-sky-700 text-center drop-shadow-lg shadow-black pt-8">
         OUR PROJECT PITCH VIDEO
     </h1>
 
-    <div class="bg-white dark:bg-red-600 h-[30vh] pb-[35%] relative xl:my-6 xl:mx-64 md:m-12 sm:m-8">
+    <div class="h-[30vh] pb-[35%] relative xl:my-6 xl:mx-64 md:m-12 sm:m-8">
         <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/k_bmcIYNSDY"
             frameborder="0" allowfullscreen></iframe>
     </div>
-
-
-
 
 </section>
 
@@ -138,7 +135,7 @@
 
 
 <!--Feedback-->
-<section class="text-gray-600 body-font relative bg-gray-100 py-4 pb-64">
+<section class="text-gray-600 body-font relative bg-gray-300 py-4 pb-64">
     <div class="container px-5 py-24 pb-10 mx-auto">
         <div class="flex flex-col text-center w-full mb-12">
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
@@ -149,21 +146,21 @@
             <div class="flex flex-wrap -m-2">
                 <div class="p-2 w-1/2">
                     <div class="relative">
-                        <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+                        <label for="name" class="leading-7 text-sm text-gray-800">Name</label>
                         <input type="text" id="name" name="name"
                             class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                     </div>
                 </div>
                 <div class="p-2 w-1/2">
                     <div class="relative">
-                        <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+                        <label for="email" class="leading-7 text-sm text-gray-800">Email</label>
                         <input type="email" id="email" name="email"
                             class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                     </div>
                 </div>
                 <div class="p-2 w-full">
                     <div class="relative">
-                        <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+                        <label for="message" class="leading-7 text-sm text-gray-800">Message</label>
                         <textarea id="message" name="message"
                             class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                     </div>
